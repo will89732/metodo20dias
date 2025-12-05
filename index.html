@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Secar em 20 Dias | Comece o Desafio</title>
+    <!-- Carregamento do Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos customizados para o branding e fontes */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Fundo levemente azulado/cinza */
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        /* Estilo para o botão principal de CTA - Ultra-chamativo */
+        .cta-button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Esmeralda para Forte Verde */
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.5), 0 4px 6px -2px rgba(16, 185, 129, 0.5);
+            font-weight: 700;
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 20px -5px rgba(16, 185, 129, 0.6), 0 6px 8px -3px rgba(16, 185, 129, 0.6);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Função JS para simular o redirecionamento ao Quiz -->
+    <script>
+        // Função que será chamada ao clicar no CTA
+        function iniciarQuiz() {
+            // Em um ambiente real, você faria:
+            // window.location.href = "URL_DO_SEU_QUIZ_AQUI"; 
+            
+            // Aqui, simulamos o clique com um alerta personalizado (já que alert() é proibido)
+            const modal = document.getElementById('quiz-modal');
+            modal.classList.remove('hidden');
+            
+            // Oculta a modal após 3 segundos, simulando um carregamento
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 3000);
+
+            console.log("Usuário redirecionado para o Quiz.");
+        }
+    </script>
+    
+    <!-- Modal de Sucesso (Simulação de Redirecionamento) -->
+    <div id="quiz-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div class="bg-white p-6 rounded-xl shadow-2xl text-center max-w-sm w-full">
+            <svg class="mx-auto h-12 w-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="mt-4 text-lg font-bold text-gray-900">Preparando seu Plano...</h3>
+            <p class="mt-2 text-sm text-gray-500">Você será redirecionado para o Quiz em instantes. A venda ocorrerá após a personalização do plano!</p>
+        </div>
+    </div>
+
+
+    <!-- 1. Header Fixo (Branding) -->
+    <header class="sticky top-0 bg-white shadow-lg z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center max-w-4xl">
+            <h1 class="text-2xl font-bold text-emerald-600 tracking-tight">Meto.do20D</h1>
+            <button onclick="iniciarQuiz()" class="text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition duration-300 hidden sm:block">
+                COMEÇAR AGORA
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. Seção HERO - Chamada Principal e CTA -->
+    <section class="py-16 md:py-24 bg-white shadow-inner">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            
+            <!-- Headline Chocante e Urgente -->
+            <h2 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-gray-900">
+                <span class="text-emerald-600">SEQUE DE 3 A 8KG</span> <br class="sm:hidden"> em Apenas 20 Dias! ⏱️
+            </h2>
+            
+            <!-- Sub-Headline (Dor e Solução) -->
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Cansada de dietas restritivas e treinos longos? Descubra a rotina simples e focada que está transformando o corpo de milhares de mulheres.
+            </p>
+            
+            <!-- CTA Principal (Foco no Quiz) -->
+            <button onclick="iniciarQuiz()" class="cta-button text-white px-10 py-4 text-xl font-bold rounded-full uppercase tracking-wider shadow-lg">
+                FAÇA O QUIZ E COMECE O DESAFIO!
+            </button>
+            <p class="mt-3 text-sm text-gray-500 font-semibold">
+                Sua rotina personalizada em menos de 2 minutos.
+            </p>
+
+            <!-- Imagem de Apoio (Faceless/Visual de Resultado) -->
+            <div class="mt-12">
+                <img src="https://placehold.co/800x400/10b981/ffffff?text=Visual+Aspiracional+e+Transformador" alt="Imagem visual aspiracional de saúde e emagrecimento para mulheres" class="mx-auto rounded-xl shadow-2xl border-4 border-emerald-100/50">
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 3. Seção: O Problema e a Solução (3 Pilares do Método) -->
+    <section class="py-16 bg-f7f9fc">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">
+                Por que o Método Secar em 20 Dias Funciona?
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pilar 1: Nutrição Inteligente -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500 transform transition duration-500 hover:scale-[1.02]">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl text-emerald-500 mr-3">🍎</span>
+                        <h4 class="text-xl font-bold">Nutrição Inteligente</h4>
+                    </div>
+                    <p class="text-gray-600">Receitas rápidas e deliciosas que ativam a queima de gordura. Você não passará fome e nem terá que cozinhar por horas.</p>
+                </div>
+
+                <!-- Pilar 2: Treinos Curtos e Eficazes -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500 transform transition duration-500 hover:scale-[1.02]">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl text-emerald-500 mr-3">🏃‍♀️</span>
+                        <h4 class="text-xl font-bold">Treinos 15 Minutos</h4>
+                    </div>
+                    <p class="text-gray-600">Treinos de alta intensidade feitos em casa. Máximo resultado no menor tempo, perfeito para a rotina da mulher ocupada.</p>
+                </div>
+
+                <!-- Pilar 3: Mindset e Motivação -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-emerald-500 transform transition duration-500 hover:scale-[1.02]">
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl text-emerald-500 mr-3">🧠</span>
+                        <h4 class="text-xl font-bold">Foco e Mindset Forte</h4>
+                    </div>
+                    <p class="text-gray-600">Conteúdo motivacional e suporte para você vencer o efeito sanfona e manter a disciplina por toda a vida.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Seção: Prova Social (Anonimizada) -->
+    <section class="py-16 bg-emerald-700">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h3 class="text-3xl font-extrabold text-white mb-10">
+                Resultados Reais. Mulheres Reais.
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Testemunho 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-xl text-gray-800">
+                    <p class="text-lg font-medium italic mb-4">
+                        "Em 20 dias, perdi 5kg sem precisar de academia! O treino de 15 minutos foi o que salvou minha rotina. É realmente o método mais simples que já segui."
+                    </p>
+                    <p class="text-sm font-bold text-emerald-600">- Maria S. (32 anos)</p>
+                </div>
+
+                <!-- Testemunho 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-xl text-gray-800">
+                    <p class="text-lg font-medium italic mb-4">
+                        "Meu maior problema era a ansiedade na hora de comer. O foco no mindset que o app oferece foi a chave para o meu sucesso. Estou muito mais confiante!"
+                    </p>
+                    <p class="text-sm font-bold text-emerald-600">- Juliana P. (45 anos)</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 5. Seção: CTA Final (Repetição) -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            
+            <h3 class="text-4xl font-extrabold mb-6 text-gray-900 hero-title">
+                Pronta para a Sua Transformação em 20 Dias?
+            </h3>
+            
+            <p class="text-lg text-gray-600 mb-8">
+                Descubra qual é o plano ideal para **o seu tipo de corpo e rotina**.
+            </p>
+
+            <!-- CTA Final - Idêntico ao principal -->
+            <button onclick="iniciarQuiz()" class="cta-button text-white px-12 py-5 text-2xl font-bold rounded-full uppercase tracking-wider shadow-xl">
+                CLIQUE AQUI E FAÇA O QUIZ GRÁTIS!
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Footer Simples -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 max-w-4xl text-center text-sm">
+            <p>&copy; 2024 Meto.do20d. Todos os direitos reservados.</p>
+            <div class="mt-2 space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white">Termos de Uso</a>
+                <a href="#" class="text-gray-400 hover:text-white">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
