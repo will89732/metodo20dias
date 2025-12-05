@@ -37,42 +37,21 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- Função JS para simular o redirecionamento ao Quiz -->
+    <!-- Função JS para redirecionamento direto ao Quiz -->
     <script>
         // Função que será chamada ao clicar no CTA
         function iniciarQuiz() {
             // ** LINK DO SEU QUIZ **
-            const quizUrl = "https://quizzer.digital/corpoperfeito-oihPFV"; // O link já está aqui!
+            const quizUrl = "https://quizzer.digital/corpoperfeito-oihPFV"; 
             
-            // ATENÇÃO: Se for usar este código em um servidor real, descomente a linha abaixo 
-            // e remova o código da modal (Simulação).
-            // window.location.href = quizUrl;
-
-            // Por enquanto, mantemos a simulação da modal (necessário para o preview do Canvas):
-            const modal = document.getElementById('quiz-modal');
-            modal.classList.remove('hidden');
-            
-            // Oculta a modal após 3 segundos, simulando um carregamento/redirecionamento
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                // Em um ambiente real, o redirecionamento aconteceria aqui
-                // window.location.href = quizUrl; 
-            }, 3000);
+            // ATIVAÇÃO DO REDIRECIONAMENTO DIRETO
+            window.location.href = quizUrl; 
 
             console.log("Usuário redirecionado para o Quiz: " + quizUrl);
         }
     </script>
     
-    <!-- Modal de Sucesso (Simulação de Redirecionamento) -->
-    <div id="quiz-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
-        <div class="bg-white p-6 rounded-xl shadow-2xl text-center max-w-sm w-full">
-            <svg class="mx-auto h-12 w-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <h3 class="mt-4 text-lg font-bold text-gray-900">Preparando seu Plano...</h3>
-            <p class="mt-2 text-sm text-gray-500">Você será redirecionado para o Quiz em instantes. A venda ocorrerá após a personalização do plano!</p>
-        </div>
-    </div>
+    <!-- O código do Modal de Simulação (quiz-modal) foi removido. -->
 
 
     <!-- 1. Header Fixo (Branding) -->
