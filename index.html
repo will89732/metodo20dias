@@ -41,19 +41,25 @@
     <script>
         // Função que será chamada ao clicar no CTA
         function iniciarQuiz() {
-            // Em um ambiente real, você faria:
-            // window.location.href = "URL_DO_SEU_QUIZ_AQUI"; 
+            // ** LINK DO SEU QUIZ **
+            const quizUrl = "https://quizzer.digital/corpoperfeito-oihPFV"; // O link já está aqui!
             
-            // Aqui, simulamos o clique com um alerta personalizado (já que alert() é proibido)
+            // ATENÇÃO: Se for usar este código em um servidor real, descomente a linha abaixo 
+            // e remova o código da modal (Simulação).
+            // window.location.href = quizUrl;
+
+            // Por enquanto, mantemos a simulação da modal (necessário para o preview do Canvas):
             const modal = document.getElementById('quiz-modal');
             modal.classList.remove('hidden');
             
-            // Oculta a modal após 3 segundos, simulando um carregamento
+            // Oculta a modal após 3 segundos, simulando um carregamento/redirecionamento
             setTimeout(() => {
                 modal.classList.add('hidden');
+                // Em um ambiente real, o redirecionamento aconteceria aqui
+                // window.location.href = quizUrl; 
             }, 3000);
 
-            console.log("Usuário redirecionado para o Quiz.");
+            console.log("Usuário redirecionado para o Quiz: " + quizUrl);
         }
     </script>
     
