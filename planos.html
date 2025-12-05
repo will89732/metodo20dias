@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha Seu Plano | Metodo Secar em 20 Dias</title>
+    <!-- Carregamento do Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos customizados para o branding e fontes */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; 
+        }
+
+        .cta-button-purchase {
+            background: #10b981; /* Verde Esmeralda */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.5), 0 2px 4px -2px rgba(16, 185, 129, 0.5);
+        }
+        .cta-button-purchase:hover {
+            background: #059669; /* Verde mais escuro no hover */
+            transform: translateY(-1px);
+        }
+        
+        /* Estilo para o Plano Destaque */
+        .featured-plan {
+            box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4), 0 8px 10px -6px rgba(16, 185, 129, 0.4);
+            border: 3px solid #10b981;
+            transform: scale(1.05); /* Destaca o plano no layout */
+        }
+
+        /* Classe utilitária para aspecto de vídeo */
+        .aspect-video {
+            aspect-ratio: 16 / 9;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Função JS para configurar os links da Kiwify -->
+    <script>
+        function iniciarCheckout(plano, preco) {
+            
+            // --- ÁREA DE CONFIGURAÇÃO DOS LINKS ---
+            // Cole seus links de afiliado (Checkout) dentro das aspas abaixo:
+            
+            let linkDestino = "";
+
+            if (plano === 'Basico') {
+                // Link para o plano de R$ 27,90
+                linkDestino = "https://pay.kiwify.com.br/IhX5Pmh?afid=a1vuPDTX"; 
+            } 
+            else if (plano === 'Padrao') {
+                // Link para o plano de R$ 37,90
+                linkDestino = "https://pay.kiwify.com.br/dBz3cJt?afid=a1vuPDTX"; 
+            } 
+            else if (plano === 'Premium') {
+                // Link para o plano de R$ 45,90
+                linkDestino = "https://pay.kiwify.com.br/6XUzyee?afid=a1vuPDTX";
+            }
+
+            // --- LÓGICA DE REDIRECIONAMENTO ---
+            // Se você configurou o link, ele redireciona. Se não, mostra o aviso.
+            if (linkDestino && linkDestino !== "SEU_LINK_KIWIFY_BASICO_AQUI") {
+                window.location.href = linkDestino;
+            } else {
+                // Mostra modal de aviso se o link não estiver configurado (apenas para teste)
+                const checkoutModal = document.getElementById('checkout-modal');
+                const planDetails = document.getElementById('plan-details');
+                planDetails.textContent = `Plano: ${plano} (Link não configurado)`;
+                checkoutModal.classList.remove('hidden');
+                setTimeout(() => checkoutModal.classList.add('hidden'), 3000);
+                console.log("Faltou configurar o link para o plano: " + plano);
+            }
+        }
+    </script>
+    
+    <!-- Modal de Simulação (Aparece só se esquecer de colocar o link) -->
+    <div id="checkout-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-sm w-full">
+            <svg class="mx-auto h-12 w-12 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <h3 class="mt-4 text-lg font-bold text-gray-900">Link não configurado</h3>
+            <p id="plan-details" class="mt-2 text-sm text-gray-500 font-semibold"></p>
+            <p class="mt-1 text-xs text-gray-400">Edite o arquivo HTML e cole seus links da Kiwify.</p>
+        </div>
+    </div>
+
+
+    <!-- 1. Header Fixo (Branding) -->
+    <header class="sticky top-0 bg-white shadow-lg z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center max-w-4xl">
+            <h1 class="text-2xl font-bold text-emerald-600 tracking-tight">Meto.do20D</h1>
+            <p class="text-sm font-semibold text-gray-600">Sua jornada começa agora!</p>
+        </div>
+    </header>
+
+    <!-- 2. Seção de Planos - Principal -->
+    <section class="py-16 md:py-20 bg-f7f9fc">
+        <div class="container mx-auto px-4 max-w-5xl text-center">
+            
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-3 text-gray-900">
+                Parabéns! Descubra seu Plano Exclusivo.
+            </h2>
+            
+            <!-- NOVO: Seção de Vídeo do App (Arquivo Local) -->
+            <div class="mb-16 max-w-4xl mx-auto">
+                <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl border-4 border-white bg-gray-900 aspect-video">
+                    
+                    <!-- 
+                        COMO USAR VÍDEO DO COMPUTADOR:
+                        1. Salve seu vídeo na mesma pasta deste arquivo 'planos.html'.
+                        2. Troque o nome "seu-video-aqui.mp4" abaixo pelo nome exato do seu arquivo.
+                        3. (Opcional) Você pode adicionar uma imagem de capa usando o atributo poster="sua-capa.jpg".
+                    -->
+                    <video 
+                        class="absolute top-0 left-0 w-full h-full object-cover"
+                        controls
+                        playsinline>
+                        <!-- Substitua 'seu-video-aqui.mp4' pelo nome do seu arquivo -->
+                        <source src="seu-video-aqui.mp4" type="video/mp4">
+                        
+                        <!-- Mensagem de erro caso o navegador seja muito antigo -->
+                        Seu navegador não suporta a tag de vídeo.
+                    </video>
+
+                </div>
+                <p class="mt-4 text-gray-600 font-medium text-sm flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Assista a uma prévia do que você vai receber
+                </p>
+            </div>
+
+            <!-- Grid de Planos -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- PLANO 1: Básico -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transition-all duration-300 hover:shadow-xl">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Plano Básico</h3>
+                        <p class="text-sm text-gray-500 mb-6">Acesso Imediato ao Método.</p>
+                        
+                        <div class="text-4xl font-extrabold text-emerald-600 mb-4">
+                            R$ 27,90<span class="text-lg font-medium text-gray-500"> / único</span>
+                        </div>
+
+                        <ul class="text-left space-y-3 mb-8 text-gray-600">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Acesso Vitalício ao App</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Treinos de 15 minutos</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Guia de Receitas Simples</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="iniciarCheckout('Basico', '27,90')" class="cta-button-purchase w-full text-white px-6 py-3 rounded-full font-semibold uppercase tracking-wider mt-4">
+                        QUERO ESTE
+                    </button>
+                </div>
+
+                <!-- PLANO 2: Padrão (DESTAQUE) -->
+                <div class="bg-white p-10 rounded-xl shadow-2xl flex flex-col justify-between featured-plan relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-lg">
+                        MAIS ESCOLHIDO
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Plano Padrão</h3>
+                        <p class="text-sm text-gray-500 mb-6">A melhor experiência para você.</p>
+                        
+                        <div class="text-5xl font-extrabold text-emerald-600 mb-1">
+                            R$ 37,90
+                        </div>
+                        <p class="text-sm font-medium text-gray-500 mb-4">
+                             Pagamento Único
+                        </p>
+
+                        <ul class="text-left space-y-3 mb-8 text-gray-800 font-medium">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Acesso Vitalício Completo</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Todos os Treinos e Dietas</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Comunidade de Alunas</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Suporte ao Cliente</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="iniciarCheckout('Padrao', '37,90')" class="cta-button-purchase w-full text-white px-6 py-4 rounded-full text-lg font-bold uppercase tracking-wider mt-4">
+                        GARANTIR AGORA
+                    </button>
+                </div>
+
+                <!-- PLANO 3: Premium -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transition-all duration-300 hover:shadow-xl">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Plano Premium</h3>
+                        <p class="text-sm text-gray-500 mb-6">Para quem exige prioridade.</p>
+                        
+                        <div class="text-4xl font-extrabold text-gray-900 mb-4">
+                            R$ 45,90<span class="text-lg font-medium text-gray-500"> / único</span>
+                        </div>
+
+                        <ul class="text-left space-y-3 mb-8 text-gray-600">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Acesso Vitalício VIP</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Atualizações Antecipadas</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Bônus Exclusivos</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Prioridade no Suporte</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="iniciarCheckout('Premium', '45,90')" class="cta-button-purchase w-full text-white px-6 py-3 rounded-full font-semibold uppercase tracking-wider mt-4 bg-gray-600 hover:bg-gray-700">
+                        QUERO SER PREMIUM
+                    </button>
+                </div>
+                
+            </div>
+            
+            <p class="mt-12 text-sm text-gray-500 font-medium">
+                🔒 Ambiente de Pagamento Seguro. Garantia Incondicional de 7 Dias.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Footer Simples -->
+    <footer class="bg-gray-800 text-white py-6 mt-10">
+        <div class="container mx-auto px-4 max-w-5xl text-center text-sm">
+            <p>&copy; 2024 Meto.do20d. | Sua transformação em 20 dias começa aqui.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
